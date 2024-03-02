@@ -1,8 +1,7 @@
 name: flutter_pixel
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
-
+homepage: https://github.com/Thambara-20/flutter-pixelAI
 environment:
   sdk: '>=3.3.0 <4.0.0'
   flutter: ">=1.17.0"
@@ -10,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:
