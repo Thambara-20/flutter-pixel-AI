@@ -21,7 +21,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ``yaml
 dependencies:
-  flutter_pixel: ^0.0.1
+  flutter_pixel: ^0.0.3
 ``
 
 Authentication [Edenai](https://www.edenai.co/):
