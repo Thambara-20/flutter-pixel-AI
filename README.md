@@ -1,5 +1,5 @@
 
- powerful AI image generation package for Flutter. It uses aedenai API to generate images based on user input.
+ powerful AI image generation package for Flutter. It uses [Aedenai](https://www.edenai.co/) API to generate images based on user input.
 ## Example
 <p float="left">
   <img src="example/assets/1.jpg" alt="Example Image 1" width="300"/>
