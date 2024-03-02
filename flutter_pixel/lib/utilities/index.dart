@@ -2,6 +2,25 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 
+enum ImageSize {
+  small,
+  medium,
+  large,
+}
+
+String getImagePath(ImageSize size) {
+  switch (size) {
+    case ImageSize.small:
+      return '256x256';
+    case ImageSize.medium:
+      return '512x512';
+    case ImageSize.large:
+      return '1024x1024';
+    default:
+      return '512x512';
+  }
+}
+
 class Authenticator {
   static String _apiToken = '';
   static void setApiToken(String token) {
@@ -16,12 +35,12 @@ class Authenticator {
   }
 }
 
-Future<Uint8List> imageGenerator(String title) async {
-
-  var api_key = Authenticator.getApiToken();
+Future<Uint8List> imageGenerator(String title, imageSize) async {
+  var apiKey = Authenticator.getApiToken();
+  final resolution = getImagePath(imageSize);
 
   var headers = {
-    'Authorization':'Bearer $api_key',
+    'Authorization': 'Bearer $apiKey',
     'Content-Type': 'application/json',
   };
 
@@ -29,7 +48,7 @@ Future<Uint8List> imageGenerator(String title) async {
   var payload = {
     'providers': 'openai',
     'text': title,
-    'resolution': '512x512',
+    'resolution': resolution,
     'fallback_providers': '',
   };
 
@@ -42,12 +61,9 @@ Future<Uint8List> imageGenerator(String title) async {
     );
 
     var result = json.decode(response.body);
-    print(result['openai']['items'][0]);
-
     final bytes = base64.decode((result['openai']['items'][0])['image']);
     return bytes;
   } catch (e) {
-    print('Error from AI package: $e');
-    return Uint8List(0);
+    throw Exception();
   }
 }
