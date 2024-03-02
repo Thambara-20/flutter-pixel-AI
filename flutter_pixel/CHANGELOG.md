@@ -1,3 +1,4 @@
-## 0.0.1
+## [0.0.2] - 2024-03-02
 
-* TODO: Describe initial release.
+ - Added support 
+

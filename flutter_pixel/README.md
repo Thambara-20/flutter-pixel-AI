@@ -19,13 +19,13 @@ dependencies:
   flutter_pixel: ^0.0.1
 ```
 
-Import the package
+Import the package:
 
 ```yaml
 import 'package:flutter_pixel/utilities/index.dart';
 ```
 
-Authentication [Edenai](https://www.edenai.co/)
+Authentication [Edenai](https://www.edenai.co/):
 
 ```yaml
 Authenticator.setApiToken('your api-key'); 
@@ -33,7 +33,7 @@ Authenticator.setApiToken('your api-key');
 
 ```
 
-Usage
+Usage of the image generation functionality:
 
 ```yaml
  Future<Uint8List> _generate(String query) async {
