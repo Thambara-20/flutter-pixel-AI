@@ -1,6 +1,6 @@
 name: flutter_pixel
 description: "Flutter package for AI image generation"
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/Thambara-20/flutter-pixelAI
 environment:
   sdk: '>=3.3.0 <4.0.0'
