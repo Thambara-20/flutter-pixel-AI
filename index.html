@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://thambara-20.github.io/flutter-pixel-AI/ -->
+<html lang="en-US"><div id="in-page-channel-node-id" data-channel-name="in_page_channel_X28tqE"></div><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="google-site-verification" content="3k4ps0DrBx8whBTqx_VNBGMFVnEZbcxSZuQ0DfkzJbI" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>flutter-pixel-AI</title>
+<meta name="generator" content="Jekyll v3.9.5">
+<meta property="og:title" content="flutter-pixel-AI">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://thambara-20.github.io/flutter-pixel-AI/">
+<meta property="og:url" content="https://thambara-20.github.io/flutter-pixel-AI/">
+<meta property="og:site_name" content="flutter-pixel-AI">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="flutter-pixel-AI">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"flutter-pixel-AI","name":"flutter-pixel-AI","url":"https://thambara-20.github.io/flutter-pixel-AI/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style><link rel="stylesheet" href="./flutter-pixel-AI_files/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/flutter-pixel-AI/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+  <body data-new-gr-c-s-check-loaded="14.1162.0" data-gr-ext-installed="">
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://thambara-20.github.io/flutter-pixel-AI/">flutter-pixel-AI</a></h1>
+      
+
+      
+<p>powerful AI image generation package for Flutter. It uses <a href="https://www.edenai.co/">Edenai</a> API to generate images based on user input.</p>
+<h2 id="example">Example<a class="anchorjs-link " href="https://thambara-20.github.io/flutter-pixel-AI/#example" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p float="left">
+  <img src="./flutter-pixel-AI_files/1.jpg" alt="Example Image 1" width="300">
+ 
+  <img src="./flutter-pixel-AI_files/2.jpg" alt="Example Image 2" width="300">
+</p>
+
+<h2 id="features">Features<a class="anchorjs-link " href="https://thambara-20.github.io/flutter-pixel-AI/#features" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<ul>
+  <li>Generate images from text descriptions.</li>
+  <li>High-quality image output.</li>
+  <li>Easy to integrate with any Flutter project.</li>
+</ul>
+
+<h2 id="getting-started">Getting Started<a class="anchorjs-link " href="https://thambara-20.github.io/flutter-pixel-AI/#getting-started" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="installation">Installation<a class="anchorjs-link " href="https://thambara-20.github.io/flutter-pixel-AI/#installation" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>Add this to your package’s <code class="language-plaintext highlighter-rouge">pubspec.yaml</code> file:</p>
+
+<p><code class="language-plaintext highlighter-rouge">yaml
+dependencies:
+  flutter_pixel: ^0.0.4
+</code></p>
+
+<p>Authentication <a href="https://www.edenai.co/">Edenai</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">Authenticator.setApiToken('your api-key');</span> 
+<span class="s">// Replace this with your edenai API key (currently has a free plan as of 02/03/2024).</span>
+
+</code></pre></div></div>
+
+<p>Usage of the image generation functionality:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="s">Future&lt;Uint8List&gt; _generate(String query) async {</span>
+    <span class="s">textController.clear();</span>
+    <span class="s">setState(() {</span>
+      <span class="s">isTextEmpty = </span><span class="no">true</span><span class="s">;</span>
+    <span class="s">});</span>
+   <span class="s">// You can specify the size [small(256x256), medium(512x512), large(1024x1024)]</span> 
+    <span class="s">Uint8List image = await imageGenerator(query, ImageSize.medium);</span> 
+    <span class="s">return image;</span>
+  <span class="s">}</span>
+</code></pre></div></div>
+
+<p>Refer to this example:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">import 'dart:typed_data';</span>
+<span class="s">import 'package:flutter/material.dart';</span>
+<span class="s">import 'package:flutter_pixel/utilities/index.dart';</span>
+
+<span class="s">class ImageScreen extends StatefulWidget {</span>
+  <span class="s">final String title;</span>
+  <span class="s">const ImageScreen({Key? key, required this.title})</span> <span class="err">:</span> <span class="na">super(key</span><span class="pi">:</span> <span class="s">key);</span>
+
+  <span class="s">@override</span>
+  <span class="s">State&lt;ImageScreen&gt; createState() =&gt; _TestState();</span>
+<span class="err">}</span>
+
+<span class="s">class _TestState extends State&lt;ImageScreen&gt; {</span>
+  <span class="s">bool isTextEmpty = </span><span class="no">true</span><span class="s">;</span>
+  <span class="s">TextEditingController textController = TextEditingController();</span>
+
+  <span class="s">Future&lt;Uint8List&gt; _generate(String query) async {</span>
+    <span class="s">textController.clear();</span>
+    <span class="s">setState(() {</span>
+      <span class="s">isTextEmpty = </span><span class="no">true</span><span class="s">;</span>
+    <span class="s">});</span>
+    <span class="s">Uint8List image = await imageGenerator(query, ImageSize.medium);</span>
+    <span class="s">return image;</span>
+  <span class="s">}</span>
+
+  <span class="s">@override</span>
+  <span class="s">void dispose() {</span>
+    <span class="s">textController.dispose();</span>
+    <span class="s">textController.clear();</span>
+    <span class="s">super.dispose();</span>
+  <span class="s">}</span>
+
+  <span class="s">@override</span>
+  <span class="s">Widget build(BuildContext context) {</span>
+    <span class="s">final double width = MediaQuery.of(context).size.width;</span>
+    <span class="s">Authenticator.setApiToken('your api-key'); // Replace this with your edenai API key (currently has a free plan as of 02/03/2024).</span>
+
+    <span class="s">return Scaffold(</span>
+      <span class="s">appBar</span><span class="err">:</span> <span class="s">AppBar(</span>
+        <span class="s">title</span><span class="err">:</span> <span class="s">Text(widget.title),</span>
+      <span class="s">),</span>
+      <span class="s">body</span><span class="err">:</span> <span class="s">SingleChildScrollView(</span>
+        <span class="s">child</span><span class="err">:</span> <span class="s">SafeArea(</span>
+          <span class="s">child</span><span class="err">:</span> <span class="s">Center(</span>
+            <span class="s">child</span><span class="err">:</span> <span class="s">Column(</span>
+              <span class="s">mainAxisAlignment</span><span class="err">:</span> <span class="s">MainAxisAlignment.center,</span>
+              <span class="s">crossAxisAlignment</span><span class="err">:</span> <span class="s">CrossAxisAlignment.center,</span>
+              <span class="s">children</span><span class="err">:</span> <span class="pi">[</span>
+                <span class="nv">Padding(</span>
+                  <span class="nv">padding</span><span class="pi">:</span> <span class="nv">const EdgeInsets.all(20)</span><span class="pi">,</span>
+                  <span class="nv">child</span><span class="pi">:</span> <span class="nv">TextField(</span>
+                    <span class="nv">controller</span><span class="pi">:</span> <span class="nv">textController</span><span class="pi">,</span>
+                    <span class="nv">decoration</span><span class="pi">:</span> <span class="nv">const InputDecoration(</span>
+                      <span class="nv">labelText</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Enter</span><span class="nv"> </span><span class="s">Text</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">Generate</span><span class="nv"> </span><span class="s">Image'</span><span class="pi">,</span>
+                      <span class="nv">border</span><span class="pi">:</span> <span class="nv">OutlineInputBorder()</span><span class="pi">,</span>
+                    <span class="nv">)</span><span class="pi">,</span>
+                  <span class="nv">)</span><span class="pi">,</span>
+                <span class="nv">)</span><span class="pi">,</span>
+                <span class="nv">Padding(</span>
+                  <span class="nv">padding</span><span class="pi">:</span> <span class="nv">const EdgeInsets.all(20)</span><span class="pi">,</span>
+                  <span class="nv">child</span><span class="pi">:</span> <span class="nv">SizedBox(</span>
+                    <span class="nv">width</span><span class="pi">:</span> <span class="nv">width</span><span class="pi">,</span>
+                    <span class="nv">child</span><span class="pi">:</span> <span class="kt">!isTextEmpty</span>
+                        <span class="pi">?</span> <span class="nv">FutureBuilder&lt;Uint8List&gt;(</span>
+                            <span class="nv">future</span><span class="pi">:</span> <span class="nv">_generate(textController.text)</span><span class="pi">,</span>
+                            <span class="nv">builder</span><span class="pi">:</span> <span class="nv">(context</span><span class="pi">,</span> <span class="nv">snapshot)</span> <span class="pi">{</span>
+                              <span class="nv">if (snapshot.connectionState ==</span>
+                                  <span class="nv">ConnectionState.waiting)</span> <span class="pi">{</span>
+                                <span class="nv">return const Center(</span>
+                                    <span class="nv">child</span><span class="pi">:</span> <span class="nv">CircularProgressIndicator());</span>
+                              <span class="pi">}</span> <span class="nv">else if (snapshot.hasError)</span> <span class="pi">{</span>
+                                <span class="nv">return Text('Error</span><span class="pi">:</span> <span class="nv">$</span><span class="pi">{</span><span class="nv">snapshot.error</span><span class="pi">}</span><span class="s1">'</span><span class="s">);</span>
+                              <span class="s">}</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">(snapshot.hasData)</span><span class="nv"> </span><span class="s">{</span>
+                                <span class="s">return</span><span class="nv"> </span><span class="s">Image.memory(snapshot.data!);</span>
+                              <span class="s">}</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">{</span>
+                                <span class="s">return</span><span class="nv"> </span><span class="s">Container();</span>
+                              <span class="s">}</span>
+                            <span class="s">},</span>
+                          <span class="s">)</span>
+                        <span class="s">:</span><span class="nv"> </span><span class="s">const</span><span class="nv"> </span><span class="s">Center(</span>
+                            <span class="s">child:</span><span class="nv"> </span><span class="s">Text(</span>
+                              <span class="s">'</span><span class="nv">Enter Text and Click the button to generate the image'</span><span class="pi">,</span>
+                              <span class="nv">style</span><span class="pi">:</span> <span class="nv">TextStyle(</span>
+                                <span class="nv">fontWeight</span><span class="pi">:</span> <span class="nv">FontWeight.bold</span><span class="pi">,</span>
+                                <span class="nv">fontSize</span><span class="pi">:</span> <span class="nv">16</span><span class="pi">,</span>
+                              <span class="nv">)</span><span class="pi">,</span>
+                            <span class="nv">)</span><span class="pi">,</span>
+                          <span class="nv">)</span><span class="pi">,</span>
+                  <span class="nv">)</span><span class="pi">,</span>
+                <span class="nv">)</span><span class="pi">,</span>
+              <span class="err">]</span><span class="pi">,</span>
+            <span class="nv">)</span><span class="pi">,</span>
+          <span class="nv">)</span><span class="pi">,</span>
+        <span class="nv">)</span><span class="pi">,</span>
+      <span class="nv">)</span><span class="pi">,</span>
+      <span class="nv">floatingActionButton</span><span class="pi">:</span> <span class="nv">FloatingActionButton(</span>
+        <span class="nv">onPressed</span><span class="pi">:</span> <span class="nv">()</span> <span class="pi">{</span>
+          <span class="nv">if (textController.text.isNotEmpty)</span> <span class="pi">{</span>
+            <span class="nv">setState(()</span> <span class="pi">{</span>
+              <span class="nv">isTextEmpty = false;</span>
+            <span class="pi">}</span><span class="nv">);</span>
+          <span class="pi">}</span>
+        <span class="pi">},</span>
+        <span class="nv">child</span><span class="pi">:</span> <span class="nv">const Icon(Icons.art_track)</span><span class="pi">,</span>
+      <span class="nv">)</span><span class="pi">,</span>
+    <span class="nv">);</span>
+  <span class="pi">}</span>
+<span class="pi">}</span>
+</code></pre></div></div>
+
+
+
+      
+    </div>
+    <script src="./flutter-pixel-AI_files/anchor.min.js.download" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
