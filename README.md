@@ -1,5 +1,6 @@
+<div style="text-align: center;">
 
- powerful AI image generation package for Flutter. It uses [Edenai](https://www.edenai.co/) API to generate images based on user input.
+powerful AI image generation package for Flutter. It uses [Edenai](https://www.edenai.co/) API to generate images based on user input.
 ## Example
 <p float="left">
   <img src="example/assets/1.jpg" alt="Example Image 1" width="300"/>
@@ -156,7 +157,7 @@ class _TestState extends State<ImageScreen> {
     );
   }
 }
+</div>
 ```
-
 
 
